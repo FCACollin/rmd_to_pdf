@@ -1,0 +1,75 @@
+---
+title: "R Markdown to PDF"
+subtitle:
+    The addition of citation management
+author: FCA Collin
+date: "`r format(Sys.Date(), '%d %B %Y')`"
+output:
+  pdf_document:
+    template: pandoc/eisvogel/eisvogel
+    toc: true
+    number_sections: true
+    latex_engine: xelatex
+bibliography: ref/ref.bib
+csl: ref/csl/field-crops-research.csl
+titlepage: true
+titlepage-color: "354C71"
+titlepage-rule-color: "FFFFFF"
+titlepage-text-color: "FFFFFF"
+toc-own-page: true
+colorlinks: true
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Including Images and References
+
+![Schematic representation of SARS-CoV-2 structure. This is an enveloped,
+positive-sense RNA virus with four main structural proteins,
+including spike (S) and membrane (M) glycoproteins, as well as envelope (E)
+and nucleocapsid (N) proteins. Figure and caption from
+@Florindo2020.\label{f-intro_covid}](img/florindo2020_covid_drawing.jpg)
+
+The figure \ref{f-intro_covid} cross-referencing is enabled by `\label{}` and
+`\ref{}` commands. It refers to a bibtex reference `@Florindo2020` which is
+rendered as "@Florindo2020", along with an entry added to the reference list at
+the end of the document. The handling of reference is very convenient and
+still readable in plain text. For instance if I want to refer
+to reproducible science and Docker images [@Nuest2020] the bracketed reference
+is added by `[@Nuest2020]`.
+Several references can be used so I can refer to several items of my PhD
+in a single reference [@Collin2018;@Collin2018b] with
+`[@Collin2018;@Collin2018b]`.
+This citation system is flexible enough to allow free text within the
+citation call [@Kapica-Topczewska2019a, see the Kaplan-Meir step curves];
+this last reference is as:
+`[@Kapica-Topczewska2019a, see the Kaplan-Meir step curves]`.
+
+
+# R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+
+# Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+\clearpage
+
+# References
